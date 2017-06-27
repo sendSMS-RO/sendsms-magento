@@ -1,0 +1,16 @@
+<div class="admin__field">
+    <label for="phone" class="admin__field-label">
+        <span>Judet</span>
+    </label>
+
+    <div class="admin__field-control">
+        <select name="sendsms_regions" id="sendsms_regions" class="admin__control-select">
+            <?php
+                $regions = $block->getRegions();
+                foreach ($regions as $region) {
+                    echo '<option value="'.$region['region'].'">'.$region['region'].'</option>';
+                }
+            ?>
+        </select>
+    </div>
+</div>

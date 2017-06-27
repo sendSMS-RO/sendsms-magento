@@ -1,0 +1,17 @@
+<div class="admin__field">
+    <label for="phone" class="admin__field-label">
+        <span>Produse</span>
+    </label>
+
+    <div class="admin__field-control">
+        <select name="sendsms_products" id="sendsms_products" class="admin__control-select">
+            <?php
+                $productCollection = $block->getProductCollection();
+                foreach ($productCollection as $product) {
+                    $product = $product->getData();
+                    echo '<option value="'.$product['entity_id'].'">'.$product['name'].'</option>';
+                }
+            ?>
+        </select>
+    </div>
+</div>
