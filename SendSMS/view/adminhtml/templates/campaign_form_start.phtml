@@ -4,12 +4,15 @@
         <div class="admin__fieldset-wrapper-content">
             <fieldset class="admin__fieldset">
                 <div class="admin__field">
+                    <?php $_dob = $block->getLayout()->createBlock('Magento\Customer\Block\Widget\Dob') ?>
                     <label for="phone" class="admin__field-label">
                         <span>Perioada start</span>
                     </label>
-
                     <div class="admin__field-control">
-                        <input type="text" id="sendsms_period_start" name="sendsms_period_start" class="admin__control-text" />
+                        <?php if ($_dob->isEnabled()): ?>
+                            <?php echo $_dob->setDate($block->getCustomer()->getDob())->toHtml() ?>
+                        <?php endif ?>
+                        <input type="text" id="sendsms_period_start" name="sendsms_period_start" class="admin__control-text wcsendsmsdatepicker" />
                     </div>
                 </div>
                 <div class="admin__field">
@@ -18,7 +21,7 @@
                     </label>
 
                     <div class="admin__field-control">
-                        <input type="text" id="sendsms_period_end" name="sendsms_period_end" class="admin__control-text" />
+                        <input type="text" id="sendsms_period_end" name="sendsms_period_end" class="admin__control-text wcsendsmsdatepicker" />
                     </div>
                 </div>
                 <div class="admin__field">

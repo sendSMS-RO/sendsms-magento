@@ -5,13 +5,7 @@
     </head>
     <body>
         <referenceContainer name="content">
-            <container name="sendsms_messages">
-
-            </container>
-            <block name="form" class="Magento\Framework\View\Element\Template" template="AnyPlaceMedia_SendSMS::campaign_form_start.phtml"/>
-            <block class="AnyPlaceMedia\SendSMS\Block\Products" name="sendsms_products" template="AnyPlaceMedia_SendSMS::campaign_form_products.phtml" />
-            <block class="AnyPlaceMedia\SendSMS\Block\Regions" name="sendsms_regions" template="AnyPlaceMedia_SendSMS::campaign_form_regions.phtml" />
-            <block name="form2" class="Magento\Framework\View\Element\Template" template="AnyPlaceMedia_SendSMS::campaign_form_end.phtml"/>
+            <uiComponent name="campaign_form"/>
         </referenceContainer>
     </body>
 </page>

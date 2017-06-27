@@ -9,40 +9,13 @@ class Index extends \Magento\Backend\App\Action
         \Magento\Backend\App\Action\Context $context,
         \Magento\Framework\View\Result\PageFactory $resultPageFactory
     ) {
-        parent::__construct($context);
         $this->resultPageFactory = $resultPageFactory;
+        parent::__construct($context);
     }
 
     public function execute()
     {
-        $resultPage = $this->resultPageFactory->create();
-        $resultPage->setActiveMenu('AnyPlaceMedia_SendSMS::campaign');
-        $resultPage->getConfig()->getTitle()->prepend(__('Campanie'));
-        $resultPage->addBreadcrumb(__('AnyPlaceMedia'), __('AnyPlaceMedia'));
-        $resultPage->addBreadcrumb(__('SendSMS'), __('Campanie'));
-
-        # POST
-        $phone = $this->getRequest()->getParam('phone');
-        $message = $this->getRequest()->getParam('message');
-
-        if (!empty($phone) && !empty($message)) {
-            $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
-            $helper = $objectManager->get('AnyPlaceMedia\SendSMS\Helper\SendSMS');
-            $helper->sendSMS($phone, $message, 'test');
-
-            $messageBlock = $resultPage->getLayout()->createBlock(
-                'Magento\Framework\View\Element\Messages',
-                'answer'
-            );
-            $messageBlock->addSuccess('Mesajul a fost trimis');
-            $resultPage->getLayout()->setChild(
-                'sendsms_messages',
-                $messageBlock->getNameInLayout(),
-                'answer_alias'
-            );
-        }
-
-        return $resultPage;
+        return $this->resultPageFactory->create();
     }
 
     /*
