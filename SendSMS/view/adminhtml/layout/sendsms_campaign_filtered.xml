@@ -3,11 +3,11 @@
     <update handle="styles"/>
     <update handle="editor"/>
     <head>
-        <title>Campanie</title>
+        <title>Campanie - Filtrata</title>
     </head>
     <body>
         <referenceContainer name="content">
-            <uiComponent name="campaign_form"/>
+            <uiComponent name="campaign_filtered_form"/>
         </referenceContainer>
     </body>
 </page>
