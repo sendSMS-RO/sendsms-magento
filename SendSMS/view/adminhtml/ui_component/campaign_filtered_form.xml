@@ -70,8 +70,9 @@
                     <item name="dataType" xsi:type="string">text</item>
                     <item name="formElement" xsi:type="string">textarea</item>
                     <item name="source" xsi:type="string">campaign</item>
-                    <item name="additionalClasses" xsi:type="string">sendsms-char-count</item>
+                    <item name="additionalClasses" xsi:type="string">sendsms-char-count-filtered</item>
                     <item name="notice" xsi:type="string">160 caractere ramase</item>
+                    <item name="maxlength" xsi:type="string">10</item>
                     <item name="validation" xsi:type="array">
                         <item name="required-entry" xsi:type="string">true</item>
                     </item>

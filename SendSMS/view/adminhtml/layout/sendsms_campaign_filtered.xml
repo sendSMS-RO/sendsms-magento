@@ -9,5 +9,8 @@
         <referenceContainer name="content">
             <uiComponent name="campaign_filtered_form"/>
         </referenceContainer>
+        <referenceContainer name="before.body.end">
+            <block class="\Magento\Framework\View\Element\Template" name="sendsmsjs" template="AnyPlaceMedia_SendSMS::js.phtml"/>
+        </referenceContainer>
     </body>
 </page>
