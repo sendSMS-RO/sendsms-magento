@@ -15,27 +15,28 @@ class Index extends \Magento\Backend\App\Action
 
     public function execute()
     {
+        $resultPage = $this->resultPageFactory->create();
+        $resultPage->setActiveMenu('AnyPlaceMedia_SendSMS::campaign');
+        $resultPage->getConfig()->getTitle()->prepend(__('Campanie'));
+        $resultPage->addBreadcrumb(__('AnyPlaceMedia'), __('AnyPlaceMedia'));
+        $resultPage->addBreadcrumb(__('SendSMS'), __('Campanie'));
+
         $postData = $this->getRequest()->getParam('campaign_form');
         if (is_array($postData)) {
-            if (!empty($postData['start_date'])) {
-                $postData['start_date'] = urlencode($postData['start_date']);
-            }
-            if (!empty($postData['start_date'])) {
-                $postData['start_date'] = urlencode($postData['start_date']);
-            }
-            if (!empty($postData['min_sum'])) {
-                $postData['start_date'] = urlencode($postData['min_sum']);
-            }
-            if (!empty($postData['product'])) {
-                $postData['product'] = urlencode($postData['product']);
-            }
-            if (!empty($postData['county'])) {
-                $postData['county'] = urlencode($postData['county']);
-            }
             $resultRedirect = $this->resultRedirectFactory->create();
-            return $resultRedirect->setPath('*/*/filtered', $postData);
+            return $resultRedirect->setPath('*/*/filtered', array(
+                '_query' => $postData
+            ));
         }
-        return $this->resultPageFactory->create();
+
+        $message = $this->getRequest()->getParam('sent');
+        if (!empty($message)) {
+            $messageBlock = $resultPage->getLayout()->createBlock('Magento\Framework\View\Element\Messages', 'answer');
+            $messageBlock->addSuccess('Mesajele au fost trimise');
+            $resultPage->getLayout()->setChild('sendsms_messages', $messageBlock->getNameInLayout(), 'answer_alias');
+        }
+        return $resultPage;
+        //return $this->resultPageFactory->create();
     }
 
     /*

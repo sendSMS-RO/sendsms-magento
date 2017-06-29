@@ -7,6 +7,8 @@
     </head>
     <body>
         <referenceContainer name="content">
+            <container name="sendsms_messages">
+            </container>
             <uiComponent name="campaign_form"/>
         </referenceContainer>
     </body>
