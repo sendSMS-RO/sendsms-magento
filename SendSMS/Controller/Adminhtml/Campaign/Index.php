@@ -36,7 +36,6 @@ class Index extends \Magento\Backend\App\Action
             $resultPage->getLayout()->setChild('sendsms_messages', $messageBlock->getNameInLayout(), 'answer_alias');
         }
         return $resultPage;
-        //return $this->resultPageFactory->create();
     }
 
     /*
