@@ -10,5 +10,13 @@
   "autoload": {
     "files": [ "registration.php" ],
     "psr-4": {"AnyPlaceMedia\\SendSMS\\":""}
+  },
+  "extra": {
+      "map": [
+          [
+              "*",
+              "AnyPlaceMedia/SendSMS"
+          ]
+      ]
   }
 }
