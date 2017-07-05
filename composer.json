@@ -1,17 +1,11 @@
 {
-  "name": "anyplacemedia/sendsms",
+  "name": "sendsmsro/sendsms-magento",
   "description": "A Magento 2 module for SMS marketing",
   "type": "magento2-module",
   "version": "1.0.0",
   "license": [
     "OSL-3.0",
     "AFL-3.0"
-  ],
-  "repositories": [
-      {
-          "type": "vcs",
-          "url": "https://github.com/sendSMSRO/sendsms-magento"
-      }
   ],
   "autoload": {
     "files": [ "registration.php" ],
